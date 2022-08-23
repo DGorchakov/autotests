@@ -15,19 +15,21 @@ public class task1 {
         continue;
       }
 
-      String strInput = String.valueOf(input);
-      if (strInput.length()!=3 || input<0) {
+      if (input/100<1 || input/100>9 || input<0) {
         System.out.println("Ошибка. Введено не трехзначное или отрицательное число");
         continue;
       }
 
       System.out.println("РЕЗУЛЬТАТ: ");
+      byte firstDigit = (byte)(input/100);
+      byte secondDigit = (byte) (input%100/10);
+      byte thirdDigit = (byte)(input%10);
 
       if(input>500) {
-        System.out.println("Число больше 500, возвращаю в обратном порядке: " + new StringBuffer(strInput).reverse());
+        System.out.println("Число больше 500, возвращаю в обратном порядке: " + (thirdDigit*100 + secondDigit*10 +firstDigit));
       }
       else {
-        System.out.println("Число меньше либо равно 500, переставляю десятки и единицы: " + strInput.charAt(0) + strInput.charAt(2) + strInput.charAt(1));
+        System.out.println("Число меньше либо равно 500, переставляю десятки и единицы: " + (firstDigit*100 + thirdDigit*10 + secondDigit));
       }
 
       System.out.println("\n=====================================================================\n");
