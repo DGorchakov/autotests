@@ -1,6 +1,4 @@
-package task2;
-
-import java.util.Scanner;
+package lesson_1.task2;
 
 public class task2 {
   public static void main(String[] args) {
