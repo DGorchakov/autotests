@@ -1,7 +1,7 @@
 package lesson_3;
 
 public abstract class Vehicle {
-   private int maxSpeed;
+  private int maxSpeed;
 
   private int levelOfResource;
 
@@ -21,12 +21,12 @@ public abstract class Vehicle {
     return levelOfResource;
   }
 
-  public void setPersentageOfResource(int persentageOfResource) {
-    this.levelOfResource = persentageOfResource;
+  public void setPersentageOfResource(int percentageOfResource) {
+    this.levelOfResource = percentageOfResource;
   }
 
-  public void becomeADriver(Person person){
-    if (this.state==State.WAITING) {
+  public void becomeADriver(Person person) {
+    if (this.state == State.WAITING) {
       System.out.println("Вы стали водителем");
       driver = person;
       state = State.STANDING;
@@ -34,7 +34,7 @@ public abstract class Vehicle {
     } else System.out.println("Невозможно стать водителем транспортного средства");
   }
 
-  public void getOutDriver(){
+  public void getOutDriver() {
     System.out.println("Вы вышли из транспортного средства");
     this.getDriver().setState(StateOfPerson.WALKER);
     state = State.WAITING;
@@ -57,26 +57,24 @@ public abstract class Vehicle {
     this.state = state;
   }
 
-  public void run(int distant){
-    if (levelOfResource<=0) {
+  public void run(int distant) {
+    if (levelOfResource <= 0) {
       setState(State.WAITING);
       System.out.println("Недостаточен уровень ресурса для поездки");
     }
     if (getState() == State.STANDING || getState() == State.RUNNING) {
       System.out.println("Едем");
       setState(State.RUNNING);
-      int resourceNeeded = distant/4; //условный расход топлива в процентах
-      if (levelOfResource < resourceNeeded) {
+      if (levelOfResource < distant / 4) {
         levelOfResource = 0;
         stop();
         setState(State.WAITING);
         System.out.println("Ресурс закончился");
-      }
-      else levelOfResource-=resourceNeeded;
+      } else levelOfResource -= distant / 4;
     }
   }
 
-  public void stop(){
+  public void stop() {
     System.out.println("Остановлен");
     setState(State.STANDING);
   }

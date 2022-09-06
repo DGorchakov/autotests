@@ -2,13 +2,13 @@ package lesson_3;
 
 import java.util.HashSet;
 
-public abstract class Car extends Vehicle implements topUpResource{
+public abstract class Car extends Vehicle implements refillResource {
   private String name;
   private TypeOfCar type;
-  private HashSet<Person> passangers;
+  private HashSet<Person> passengers;
 
-  private int persentageOfResource = 10;
-  private int countOfPassangers = 0;
+  private int percentageOfResource = 10;
+  private int countOfPassengers = 0;
 
   private static int countOfCars = 0;
 
@@ -16,23 +16,22 @@ public abstract class Car extends Vehicle implements topUpResource{
     super(maxSpeed);
     this.name = name;
     this.type = type;
-    this.passangers = new HashSet<Person>(type.getMaxCountOfPassangers());
+    this.passengers = new HashSet<Person>(type.getMaxCountOfPassengers());
     countOfCars++;
   }
 
-  public void becomeAPassanger(Person person){
-    if (countOfPassangers<type.getMaxCountOfPassangers()) {
+  public void becomeAPassenger(Person person) {
+    if (countOfPassengers < type.getMaxCountOfPassengers()) {
       System.out.println("Плюс один пассажир");
-      countOfPassangers++;
-      passangers.add(person);
+      countOfPassengers++;
+      passengers.add(person);
       person.setState(StateOfPerson.PASSENGER);
-    }
-    else System.out.println("В машине нет места");
+    } else System.out.println("В машине нет места");
   }
 
-  public void getOutPassanger(Person person){
-    countOfPassangers--;
-    passangers.remove(person);
+  public void getOutPassenger(Person person) {
+    countOfPassengers--;
+    passengers.remove(person);
     person.setState(StateOfPerson.WALKER);
   }
 

@@ -25,8 +25,8 @@ public class Person {
     return amountOfMoney;
   }
 
-  public void spendMoney(int amount){
-    if (amountOfMoney>=amount) amountOfMoney-=amount;
+  public void spendMoney(int amount) {
+    if (amountOfMoney >= amount) amountOfMoney -= amount;
     else System.out.println("У вас недостаточно средств для оплаты");
   }
 
