@@ -22,10 +22,7 @@ public class Main {
       if (!Pattern.matches(regex, login)) throw new WrongLoginException("Логин не соответвствует требованиям");
       if (!Pattern.matches(regex, password)) throw new WrongPasswordException("Пароль не соответствует требованиям");
       if (!password.equals(confirmPassword)) throw new WrongPasswordException("Пароли не совпадают");
-    } catch (WrongLoginException e) {
-      System.out.println("Ошибка : " + e.getMessage());
-      return false;
-    } catch (WrongPasswordException e) {
+    } catch (WrongPasswordException | WrongLoginException e) {
       System.out.println("Ошибка : " + e.getMessage());
       return false;
     }
