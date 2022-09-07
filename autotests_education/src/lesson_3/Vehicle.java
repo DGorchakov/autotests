@@ -3,6 +3,8 @@ package lesson_3;
 public abstract class Vehicle {
   private int maxSpeed;
 
+  boolean registered = false;
+
   private int levelOfResource;
 
   private Person driver = null;
@@ -82,7 +84,16 @@ public abstract class Vehicle {
   public void setLevelOfResource(int levelOfResource) {
     this.levelOfResource = levelOfResource;
   }
+
   public abstract void printModel();
+
+  public boolean isRegistered() {
+    return registered;
+  }
+
+  public void setRegistered(boolean registered) {
+    this.registered = registered;
+  }
 }
 
 

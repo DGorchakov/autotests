@@ -21,5 +21,10 @@ public class Main {
     fordFocus.printModel();
     anotherFordFocus.printModel();
     bicycle.printModel();
+
+    CarRegistry<Car> carRegistry = CarRegistry.getCarRegistry();
+    carRegistry.register(fordFocus);
+    System.out.println(carRegistry.isRegistered(fordFocus));
+    System.out.println(carRegistry.isRegistered(anotherFordFocus));
   }
 }
