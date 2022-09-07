@@ -17,5 +17,9 @@ public class Main {
     fordFocus.becomeADriver(anotherPerson);
     fordFocus.getOutDriver();
     fordFocus.becomeADriver(anotherPerson);
+
+    fordFocus.printModel();
+    anotherFordFocus.printModel();
+    bicycle.printModel();
   }
 }

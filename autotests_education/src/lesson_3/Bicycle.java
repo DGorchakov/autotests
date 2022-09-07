@@ -57,5 +57,10 @@ public class Bicycle extends Vehicle implements refillResource {
     }
   }
 
+  @Override
+  public void printModel() {
+    System.out.println("Велосипед, цвет : " + this.color);
+  }
+
 
 }

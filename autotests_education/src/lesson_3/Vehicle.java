@@ -82,4 +82,9 @@ public abstract class Vehicle {
   public void setLevelOfResource(int levelOfResource) {
     this.levelOfResource = levelOfResource;
   }
+  public abstract void printModel();
 }
+
+
+
+

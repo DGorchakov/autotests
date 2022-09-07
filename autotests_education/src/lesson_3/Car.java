@@ -20,7 +20,7 @@ public abstract class Car extends Vehicle implements refillResource {
     countOfCars++;
   }
 
-  public void becomeAPassenger(Person person) {
+  public void setAPassenger(Person person) {
     if (countOfPassengers < type.getMaxCountOfPassengers()) {
       System.out.println("Плюс один пассажир");
       countOfPassengers++;

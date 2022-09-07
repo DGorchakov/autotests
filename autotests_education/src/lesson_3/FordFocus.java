@@ -8,7 +8,7 @@ public class FordFocus extends Car implements refillResource {
   public FordFocus(String color, TypeOfResources typeOfEngine) {
     super(TypeOfCar.SEDAN, 200, "ФордФокус");
     this.color = color;
-    this.typeOfEngine = TypeOfResources.PETROL;
+    this.typeOfEngine = typeOfEngine;
   }
 
   @Override
@@ -25,5 +25,10 @@ public class FordFocus extends Car implements refillResource {
       this.setPersentageOfResource(this.getLevelOfResource() + percent);
       buyer.spendMoney(percent * typeOfEngine.getPricePerPercent());
     }
+  }
+
+  @Override
+  public void printModel() {
+    System.out.println("Модель фордфокус, тип двигателя: " + this.typeOfEngine + ", цвет : " + this.color);
   }
 }
