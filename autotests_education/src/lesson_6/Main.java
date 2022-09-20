@@ -69,6 +69,23 @@ public class Main {
     System.out.println(leaveStudentsForNextYear(students));
     printStudents(students, 4);
 
+    FacultyFactory facultyFactory = new FacultyFactory();
+    Faculty physicsFaculty = facultyFactory.getFaculty(FacultyType.PHYSICS);
+    Faculty psychologyFactory = facultyFactory.getFaculty(FacultyType.PSYCHOLOGY);
+
+    psychologyFactory.printDescription();
+    System.out.println();
+    physicsFaculty.printDescription();
+
+    System.out.println(physicsFaculty.getSubjects(2));
+    System.out.println(psychologyFactory.getSubjects(1));
+
+    psychologyFactory.acceptStudents(1, students.get(0), students.get(1));
+    System.out.println(psychologyFactory.getStudents(1));
+
+    Faculty psychologyFactoryAgain = facultyFactory.getFaculty(FacultyType.PSYCHOLOGY);  // проверка синглтона
+    System.out.println(psychologyFactoryAgain.getStudents(1));
+
   }
 
   public static List<Student> leaveStudentsForNextYear(List<Student> students) {
